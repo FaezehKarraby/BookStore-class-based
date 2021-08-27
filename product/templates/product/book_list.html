@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}کتاب ها{% endblock %}
+{% block content %}
+{% if book_list %}
+  <ul>
+    {% for book in book_list %}
+    <li>
+      <a href="{% url 'product:book_detail' pk=book.id %}"> {{ book.title }} </a>
+
+    </li>
+    <br>
+  {% endfor %}
+</ul>
+{% else %}
+  <p>کتابی یافت نشد.</p>
+{% endif %}
+{% endblock %}

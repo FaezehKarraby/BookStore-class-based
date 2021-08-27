@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}{{book.title}}{% endblock %}
+{% block content %}
+<ul>
+  <li>
+    نام کتاب :
+    {{ book.title }}
+  </li>
+  <small>
+  نویسنده :
+  {{book.author}}
+  <br>
+  تعداد موجودی :
+  {{book.inventory}}
+  <br>
+  قیمت :
+  {{book.price}}
+  <br>
+  دسته بندی :
+  {{book.category}}
+  </small>
+</ul>
+{% endblock %}

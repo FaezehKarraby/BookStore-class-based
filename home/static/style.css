@@ -1,0 +1,165 @@
+html {
+direction: rtl;
+}
+body {
+direction: rtl;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+direction: rtl;
+}
+@media (min-width: 768px) {
+    .dl-horizontal dt {
+float: right;
+    }
+}
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+float: right;
+}
+@media (min-width: 768px) {
+    .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+float: right;
+    }
+}
+@media (min-width: 992px) {
+    .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+float: right;
+    }
+}
+@media (min-width: 1200px) {
+    .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
+float: right;
+    }
+}
+.dropdown-menu, {
+float: right;
+}
+.btn-group > .btn,
+.btn-group-vertical > .btn {
+float: right;
+}
+.btn-toolbar .btn,
+.btn-toolbar .btn-group,
+.btn-toolbar .input-group {
+float: right;
+}
+.btn-group > .btn-group {
+float: right;
+}
+.input-group .form-control {
+float: right;
+}
+.nav-tabs > li {
+float: right;
+}
+.nav-pills > li {
+float: right;
+}
+@media (min-width: 768px) {
+    .navbar-header {
+float: right;
+    }
+}
+.navbar-brand {
+float: right;
+}
+@media (min-width: 768px) {
+    .navbar-nav {
+float: right;
+    }
+    .navbar-nav> li {
+float: right;
+    }
+}
+@media (min-width: 768px) {
+    .navbar-text {
+float: right;
+    }
+}
+.pagination > li > a,
+.pagination > li > span {
+float: right;
+}
+.pager .previous > a,
+.pager .previous > span {
+float: right;
+}
+.progress-bar {
+float: right;
+}
+.popover {
+text-align: right;
+}
+caption {
+text-align: right;
+}
+th {
+text-align: right;
+}
+.dropdown-menu {
+text-align: right;
+}
+.tooltip {
+text-align: right;
+}
+/* ==========کدهای بالا مربوط به راستچین کردن صفحه میباشند======= */
+
+.div-show-search-error {
+color: red;
+font-size: 24px;
+text-align: center;
+}
+.show-search-list {
+font-size: 18px;
+text-align: center;
+list-style-type: none;
+}
+a {
+text-decoration: none;
+}
+a:hover {
+color: #212529 !important;
+background-color: #00ff0e;
+font-weight: bold;
+}
+#resultsearchheader {
+font-size: 18px;
+text-align: center;
+}
+.d-flex {
+margin-block-end: inherit;
+}
+.navbar-dark {
+padding-top: 0rem;
+padding-bottom: 0rem;
+}
+.navbar-brand {
+padding-top: 0rem;
+padding-bottom: 0rem;
+}
+.btn-outline-success {
+color: #00ff0e !important;
+background-color: #212529 !important;
+border-color: #00ff0e !important;
+}
+.btn-outline-success:hover {
+color: #000 !important;
+background-color: #00ff0e !important;
+border-color: #00ff0e !important;
+}
+#datetime {
+color: #fff !important;
+margin-right: .5rem;
+}
+.bi-clock {
+color: #00ff0e;
+}
+.navbar-nav {
+margin-right: 0rem !important;
+}
+.nav-link {
+color: #fff !important;
+}
