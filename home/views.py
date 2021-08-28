@@ -4,7 +4,7 @@ from django.db.models import Q
 from product.models import Book
 
 class HomePageView(TemplateView):
-    template_name = 'home/home_page.html'
+    template_name = 'home.html'
 
 def search(request):
     error = ''

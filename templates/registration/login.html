@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}ورود کاربران{% endblock %}
+{% block content %}
+  <ul>
+    <h3>ورود کاربران </h3>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">ورود</button>
+</form>
+{% endblock %}

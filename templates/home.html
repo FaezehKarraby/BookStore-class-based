@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
-{% block title %}صفحه اصلی{% endblock %}
+{% block title %} Home {% endblock %}
 {% block content %}
+{% if user.is_authenticated %}
 <nav class="navbar navbar-expand-lg navbar-light bg-primary">
   <div class="container-fluid">
 
@@ -10,7 +11,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'home:home' %}">صفحه اصلی</a>
+
         </li>
 
         <li class="nav-item">
@@ -24,4 +25,10 @@
 </nav>
 
 
+  <p><a href="{% url 'logout' %}">خروج</a></p>
+  <p><a href="{% url 'password_reset' %}">تنظیم مجدد رمز عبور</a></p>
+{% else %}
+  <p>not login</p>
+  <a href="{% url 'login' %}">ورود</a>
+{% endif %}
 {% endblock %}
