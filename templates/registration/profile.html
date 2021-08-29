@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}پروفایل{% endblock %}
+{% block content %}
+  <ul>
+    <h3>پروفایل </h3>
+<form method="post">
+  {% csrf_token %}
+
+  نام کاربری
+  :
+  {{user.username}}
+  <br>
+  نام و نام خانوادگی
+  :
+  {{ user.get_full_name }}
+  <br>
+  ایمیل
+  :
+  {{ user.email }}
+  <br>
+  تلفن همراه
+  :
+  {{ request.user.mobile }}
+  <br>
+  جنسیت
+  :
+  {{user.gender }}
+  <br>
+  تاریخ تولد
+  :
+  {{ user.birth_date }}
+
+  <br><br>
+
+  <button type="submit" name="button"><a href="{% url 'account:profileedit' pk=user.id %}">ویرایش</a></button>
+  <br>
+  <button type="submit" name="button"><a href="{% url 'home:home'  %}">بازگشت</a></button>
+  <br>
+
+</form>
+{% endblock %}

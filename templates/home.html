@@ -1,9 +1,23 @@
 {% extends 'base.html' %}
 {% block title %} Home {% endblock %}
 {% block content %}
-{% if user.is_authenticated %}
+
 <nav class="navbar navbar-expand-lg navbar-light bg-primary">
   <div class="container-fluid">
+    <!-- and profile.user == request.user -->
+    {% block userauthenticated %}
+      {% if user.is_authenticated %}
+        {{ user.get_full_name }}
+        <!--<br>id is
+        {{user.id}}-->
+        <br>
+        <a class="nav-link active" aria-current="page" href="{% url 'account:profile' %}">پروفایل</a>
+      {% else %}
+        <a class="nav-link active" aria-current="page" href="{% url 'login' %}"> <p>ورود</p> </a>
+        <p> / </p>
+        <a class="nav-link active" aria-current="page" href="{% url 'account:signup' %}"> <p>ثبت نام</p> </a>
+      {% endif %}
+    {% endblock %}
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -24,11 +38,10 @@
   </div>
 </nav>
 
-
+{% if user.is_authenticated %}
   <p><a href="{% url 'logout' %}">خروج</a></p>
   <p><a href="{% url 'password_reset' %}">تنظیم مجدد رمز عبور</a></p>
-{% else %}
-  <p>not login</p>
-  <a href="{% url 'login' %}">ورود</a>
 {% endif %}
+
+
 {% endblock %}

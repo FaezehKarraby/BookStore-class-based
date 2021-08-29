@@ -6,6 +6,8 @@
 <form method="post">
   {% csrf_token %}
   {{ form.as_p }}
+
+  <br><br>
   <button type="submit">ثبت نام</button>
   <br><br>
   <a href="{% url 'home %'}">صفحه اصلی</a>
