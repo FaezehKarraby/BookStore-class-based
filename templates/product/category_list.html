@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}محصولات{% endblock %}
+
 {% block content %}
 {% if category_list %}
   <ul>
@@ -17,4 +18,9 @@
 {% else %}
   <p>محصولی یافت نشد.</p>
 {% endif %}
+{% if user.is_authenticated %}
+  <p><a href="{% url 'product:category_create' %}">ثبت دسته بندی جدید</a></p>
+    <p><a href="{% url 'logout' %}">خروج</a></p>
+{% endif %}
+
 {% endblock %}

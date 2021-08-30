@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %} دسته بندی جدید{% endblock %}
+{% block content %}
+<ul>
+  <h3>ایجاد دسته بندی جدی</h3>
+</ul>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">ایجاد</button>
+</form>
+{% endblock %}

@@ -4,14 +4,19 @@ from django.urls import reverse_lazy, reverse
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.models import User
 from account.models import Profile
-from django.http import HttpResponse
-from django.contrib.auth.decorators import login_required
 
 
 class SignUpView(CreateView):
+    model = Profile
     form_class = SignUpForm
     success_url = reverse_lazy('login')
     template_name = 'registration/signup.html'
+
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
 
 
 class ProfileView(FormView):

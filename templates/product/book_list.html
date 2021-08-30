@@ -14,4 +14,9 @@
 {% else %}
   <p>کتابی یافت نشد.</p>
 {% endif %}
+{% if user.is_authenticated %}
+  <p><a href="{% url 'product:book_create' %}">ثبت کتاب جدید</a></p>
+    <p><a href="{% url 'logout' %}">خروج</a></p>
+{% endif %}
+
 {% endblock %}
