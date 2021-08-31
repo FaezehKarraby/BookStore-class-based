@@ -20,4 +20,5 @@
   {{book.category}}
   </small>
 </ul>
+<p><a href="{% url 'product:book_delete' pk=book.id %}">حذف کتاب</a></p>
 {% endblock %}

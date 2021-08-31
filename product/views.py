@@ -1,20 +1,13 @@
 from django.shortcuts import render
-from django.views.generic import DetailView, ListView, CreateView
+from django.views.generic import DetailView, ListView, CreateView, DeleteView
 from .models import Book, Category
 from django.http import HttpResponseRedirect
 from .forms import BookCreateForm, CategoryCreateForm
+from django.urls import reverse_lazy
 
+#Category codes
 class CategoryListView(ListView):
     model = Category
-
-
-class BookListView(ListView):
-    model = Book
-
-
-class BookDetailView(DetailView):
-    model = Book
-
 
 class CategoryCreateView(CreateView):
     template_name = 'product/category_create.html'
@@ -37,6 +30,21 @@ class CategoryCreateView(CreateView):
         return kwargs
 
 
+class CategoryDeleteView(DeleteView):
+    model = Category
+    success_url = reverse_lazy('product/category_list/')
+
+
+
+#Book codes
+class BookListView(ListView):
+    model = Book
+
+
+class BookDetailView(DetailView):
+    model = Book
+
+
 class BookCreateView(CreateView):
     template_name = 'product/book_create.html'
     form_class = BookCreateForm
@@ -56,3 +64,7 @@ class BookCreateView(CreateView):
         kwargs = super(BookCreateView, self).get_form_kwargs(*args, **kwargs)
         kwargs['user'] = self.request.user
         return kwargs
+
+class BookDeleteView(DeleteView):
+    model = Book
+    success_url = '/product/books'

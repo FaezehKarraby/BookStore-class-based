@@ -1,4 +1,4 @@
-from django.views.generic import CreateView, UpdateView, FormView
+from django.views.generic import CreateView, UpdateView, FormView, DeleteView
 from account.forms import SignUpForm, ProfileForm
 from django.urls import reverse_lazy, reverse
 from django.shortcuts import render, get_object_or_404
@@ -13,12 +13,6 @@ class SignUpView(CreateView):
     template_name = 'registration/signup.html'
 
 
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super().form_valid(form)
-
-
-
 class ProfileView(FormView):
     form_class = ProfileForm
     template_name = 'registration/profile.html'
@@ -29,7 +23,6 @@ class ProfileView(FormView):
 
     def get_success_url(self, *args, **kwargs):
         return reverse('login')
-
 
 
 class ProfileEdit(UpdateView):
@@ -43,3 +36,8 @@ class ProfileEdit(UpdateView):
 
     def get_success_url(self, *args, **kwargs):
         return reverse('profile')
+
+
+class ProfileDeleteView(DeleteView):
+    model = Profile
+    success_url = reverse_lazy('logout')

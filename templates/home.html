@@ -8,7 +8,11 @@
     <!-- and profile.user == request.user -->
     {% block userauthenticated %}
       {% if user.is_authenticated %}
+        {{ user.username}}
         {{ user.get_full_name }}
+        {% if user.username == 'admin' %}
+          <a class="nav-link active" aria-current="page" href='admin/'>admin</a>
+        {% endif %}
         <!--<br>id is
         {{user.id}}-->
         <br>
@@ -41,6 +45,7 @@
 
 {% if user.is_authenticated %}
   <p><a href="{% url 'password_reset' %}">تنظیم مجدد رمز عبور</a></p>
+  <a href="{% url 'account:delete' pk=user.id %}">حذف</a>
   <p><a href="{% url 'logout' %}">خروج</a></p>
 {% endif %}
 

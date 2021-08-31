@@ -24,6 +24,9 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.get_full_name()
 
+    def get_absolute_url(self):
+        return reverse('login')
+
 @receiver(post_save, sender=User)
 def update_profile_signal(sender, instance, created, **kwargs):
     if created:
