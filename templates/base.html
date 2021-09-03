@@ -33,7 +33,11 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-primary">
     <div class="container-fluid">
       {% block home %}
+        <!-- button back
+        <a href="../"><input type="button" value="Back" class="btn btn-primary" /></a>
+      -->
         <button type="button" name="button"><a href="{% url 'home:home' %}">صفحه اصلی</a></button>
+        <button type="button" name="button"><a href="{{ request.META.HTTP_REFERER }}">برگشت</a></button>
       {% endblock %}
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -60,6 +64,12 @@
     {% endblock %}
   {% endblock %}
 
+  {% block exit %}
+    {% if user.is_authenticated %}
+      <button type="submit" name="button"><a href="{% url 'account:exit' %}">خروج</a></button>
+    {% endif %}
+  {% endblock %}
+  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
   <script src="/static/scripts.js" ></script>
 </body>

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}{{book.title}}{% endblock %}
+{% block title %}{{ book.title }}{% endblock %}
 {% block content %}
 <ul>
   <li>
@@ -8,17 +8,18 @@
   </li>
   <small>
   نویسنده :
-  {{book.author}}
+  {{ book.author }}
   <br>
   تعداد موجودی :
-  {{book.inventory}}
+  {{ book.inventory }}
   <br>
   قیمت :
-  {{book.price}}
+  {{ book.get_price_display }}
   <br>
   دسته بندی :
-  {{book.category}}
+  {{ book.category }}
   </small>
 </ul>
-<p><a href="{% url 'product:book_delete' pk=book.id %}">حذف کتاب</a></p>
+<button type="submit" name="button"><a href="{% url 'product:book_update' pk=book.id %}">ویرایش کتاب</a></button>
+<button type="submit" name="button"><a href="{% url 'product:book_delete' pk=book.id %}">حذف کتاب</a></button>
 {% endblock %}

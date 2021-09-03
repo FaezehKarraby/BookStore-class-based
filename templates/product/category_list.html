@@ -20,7 +20,6 @@
 {% endif %}
 {% if user.is_authenticated %}
   <p><a href="{% url 'product:category_create' %}">ثبت دسته بندی جدید</a></p>
-  <p><a href="{% url 'logout' %}">خروج</a></p>
 {% endif %}
 
 {% endblock %}

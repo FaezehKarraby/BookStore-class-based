@@ -3,10 +3,11 @@
 {% block content %}
 {% if book_list %}
   <ul>
+    تعداد کتاب های وجود :
+    {{ book_list.count }}
     {% for book in book_list %}
     <li>
       <a href="{% url 'product:book_detail' pk=book.id %}"> {{ book.title }} </a>
-
     </li>
     <br>
   {% endfor %}
@@ -15,9 +16,9 @@
   <p>کتابی یافت نشد.</p>
 {% endif %}
 {% if user.is_authenticated %}
+
   <p><a href="{% url 'product:book_create' %}">ثبت کتاب جدید</a></p>
   <p><a href="{% url 'product:category_delete' pk=user.id %}">حذف دسته بندی</a></p>
-  <p><a href="{% url 'logout' %}">خروج</a></p>
 {% endif %}
 
 {% endblock %}

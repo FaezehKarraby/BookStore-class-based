@@ -35,5 +35,7 @@
   <input type="text" name="username" value="  {{ user.birth_date }}">
 </form>
 <br>
+<button type="submit" name="button"><a href="{% url 'password_reset' %}">تنظیم مجدد رمز عبور</a></button>
+<br>
 <button type="submit" name="button"><a href="{% url 'account:profile' %}">ویرایش شود</a></button>
 {% endblock %}

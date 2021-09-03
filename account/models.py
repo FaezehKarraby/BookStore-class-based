@@ -8,6 +8,8 @@ class Profile(models.Model):
     class Meta:
         verbose_name = 'نمایه کاربری'
         verbose_name_plural = 'نمایه کاربری'
+        #order_by = ''
+
     user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name='حساب کاربری', null=True, blank=True, related_name='profile')
     mobile = models.CharField('تلفن همراه', max_length=11)
 
@@ -22,6 +24,7 @@ class Profile(models.Model):
     balance = models.IntegerField('اعتبار', default=0)
 
     def __str__(self):
+
         return self.user.get_full_name()
 
     def get_absolute_url(self):
