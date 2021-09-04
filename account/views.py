@@ -5,6 +5,8 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.models import User
 from account.models import Profile
 from django.contrib.auth import get_user_model
+from django.http import HttpResponse, HttpResponseRedirect
+
 
 
 class SignUpView(CreateView):

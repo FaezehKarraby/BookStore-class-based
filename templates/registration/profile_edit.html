@@ -39,3 +39,25 @@
 <br>
 <button type="submit" name="button"><a href="{% url 'account:profile' %}">ویرایش شود</a></button>
 {% endblock %}
+
+
+<!--{% extends 'base.html' %}
+{% block title %}ورود کاربران{% endblock %}
+
+{% block home %}
+<ul><h3>
+  خوش آمدید
+</h3></ul>
+{% endblock %}
+
+{% block content %}
+  <ul>
+    <h4>ورود کاربران </h4>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">ورود</button>
+  <button type="submit"><a href="{% url 'home:home' %}">صفحه اصلی</a></button>
+</form>
+{% endblock %}
+-->
