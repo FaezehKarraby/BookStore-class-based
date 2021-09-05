@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}خروج{% endblock %}
+
+{% block content %}
+  <ul>
+  آیا مطمئن هستید می خواهید خارج شوید؟
+  <br>
+{% endblock %}
+{% block exit %}
+  <button type="submit" name="button"><a href="{% url 'logout' %}">خروج</a></button>
+{% endblock %}

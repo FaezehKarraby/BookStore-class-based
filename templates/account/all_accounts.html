@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}کاربران{% endblock %}
+{% block content %}
+<h3><p>کاربران</p></h3>
+<form class="" action="index.html" method="post">
+  {% csrf_token %}
+  {% if users %}
+    تعداد کاربران :
+    {{ users.count }}
+    {% for user1 in users %}
+          <li>
+            <a href="{% url 'account:account_detail' pk=user1.id %}">{{ user1 }}</a>
+    {% endfor %}
+  {% else %}
+    <p>هیچ کاربری وجود ندارد.</p>
+  {% endif %}
+
+</form>
+{% endblock %}

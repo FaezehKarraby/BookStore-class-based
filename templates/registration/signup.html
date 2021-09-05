@@ -2,7 +2,7 @@
 <html lang="en" dir="rtl">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>responsive sliding form</title>
+    <title>فرم ثبت نام</title>
     <link rel="stylesheet" type='text/css' href="/static/signup.css">
   </head>
   <body>
@@ -14,19 +14,15 @@
           <form method="post">
             {% csrf_token %}
             <h3>فرم ثبت نام </h3>
-
-            <input type="text" name='username' maxlength="150" autofocus required id='id_username' placeholder="حساب کاربری">
-            <span class='helptext'>فقط شامل حروف، اعداد و علامات @/./+/-/_</span>
+            <input type="text" name='username' maxlength="150" autofocus required id='id_username' placeholder="*نام کاربری">
             <input type="text" name="first_name" maxlength="30" id='id_first_name' placeholder="نام">
-            <span class='helptext'>اختیاری</span>
             <input type="text" name="last_name" maxlength="30" id='id_last_name' placeholder="نام خانوادگی">
-            <span class='helptext'>اختیاری</span>
-            <input type="email" name="email" maxlength="254" id='id_email' placeholder="ایمیل">
-            <input type="password" name="password1" autocomplete="new-password" required id='id_last_name' placeholder="رمز">
-            <input type="password" name="password2" autocomplete="new-password" required id='id_password2' placeholder="تایید رمز">
+            <input type="email" name="email" maxlength="254" id='id_email' placeholder="*ایمیل">
+            <input type="password" name="password1" autocomplete="new-password" required id='id_last_name' placeholder="*رمز">
+            <input type="password" name="password2" autocomplete="new-password" required id='id_password2' placeholder="*تایید رمز">
 
             <input type="submit" value="ثبت نام">
-            <button type="button"><a href="{% url 'login' %}">ورود</a></button>
-            <button type="submit"><a href="{% url 'home:home' %}">صفحه اصلی</a></button>
+            <button type="submit"><a href="{% url 'login' %}" class="login" style="text-decoration: none;">ورود</a></button>
+            <button type="submit"><a href="{% url 'home:home' %}" class="home" style="text-decoration: none;">صفحه اصلی</a></button>
           </form>
         </div>
