@@ -1,31 +1,14 @@
 {% extends 'base.html' %}
-{% block title %}نتایج جستجو برای{% endblock %}
+{% block title %}{{book}}نتایج جستجو برای{% endblock %}
 {% block content %}
 <div class="container-fluid">
-    {% if error %}
-        <p class="div-show-search-error">{{ error }}</p>
-
+  {% for book in object_list %}
+    {% if book %}
+      {{book.title}}
+      <br>
     {% else %}
-      {% if books1 %}
-        <p id="resultsearchheader"><strong>{{ books1|length }}</strong> نتیجه برای <strong>"{{ query }}"</strong> در نام کتاب ها یافت شد :  </p>
-        <ul class="show-search-list">
-            {% for book in books1 %}
-                <li><a href="{% url 'product:book_detail' pk=book.id %}">{{ book.title }}</a></li>
-            {% endfor %}
-      {% endif %}
-        </ul>
-        {% if books2 %}
-          <p id="resultsearchheader"><strong>{{ books2|length }}</strong> نتیجه برای <strong>"{{ query }}"</strong> در نام نویسنده ها یافت شد :  </p>
-          <ul class="show-search-list">
-            {% for book in books2 %}
-                {% if book not in books1 %}
-                  <li><a href="{% url 'product:book_detail' pk=book.id %}">{{ book.title }}</a></li>
-                  <p>{{book.author}}</p>
-                {% endif %}
-            {% endfor %}
-        {% endif %}
-        </ul>
-
+    no book
     {% endif %}
+  {% endfor %}
 </div>
 {% endblock %}

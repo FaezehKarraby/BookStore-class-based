@@ -20,7 +20,7 @@
             <input type="submit" value="ورود">
             <button type="submit"><a href="{% url 'account:signup' %}" class="signup" style="text-decoration: none;">ثبت نام</a></button>
             <button type="submit"><a href="{% url 'home:home' %}" class="home" style="text-decoration: none;">صفحه اصلی</a></button>
-            <a href="#" class="forget" style="text-decoration: none;">آیا رمز خود را فراموش کرده اید؟</a>
+            <a href="{% url 'password_reset' %}" class="forget" style="text-decoration: none;">آیا رمز خود را فراموش کرده اید؟</a>
           </form>
         </div>
       </div>

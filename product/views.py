@@ -84,3 +84,8 @@ class BookUpdateView(UpdateView):
 class BookDeleteView(DeleteView):
     model = Book
     success_url = '/product/books'
+
+
+def book_shop(request):
+    context = {}
+    return render(request, 'product/book_shop.html', context)

@@ -1,10 +1,25 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 from django.db.models import Q
 from product.models import Book
 
 class HomePageView(TemplateView):
     template_name = 'home.html'
+
+
+class SearchResultView(ListView):
+    model = Book
+    template_name = 'home/search_results.html'
+
+    def get_queryset(self):
+        if 'q' in self.request.GET:
+            query = self.request.GET.get('q')
+            if not query:
+                query = 'None'
+            object_list = Book.objects.filter(Q(title__contains=query))
+            return object_list
+        else:
+            error='یافت نشد'
 
 def search(request):
     error = ''
@@ -14,7 +29,7 @@ def search(request):
     if 'q' in request.GET:
         query = request.GET['q']
         if not query:
-            error = 'لطفا مقدار صحیحی وارد کنید'
+            query = 'None'
         else:
             books1 = Book.objects.filter(Q(title__contains=query))
             books2 = Book.objects.filter(Q(author__contains=query))
@@ -26,4 +41,4 @@ def search(request):
     'books1': books1,
     'books2': books2,
     }
-    return render(request, 'home/search_results.html', context)
+    return render(request, 'home/search.html', context)

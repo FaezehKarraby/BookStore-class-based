@@ -3,8 +3,6 @@
 {% block home %}{% endblock %}
 
 {% block content %}
-<nav class="navbar navbar-expand-lg navbar-light bg-primary">
-  <div class="container-fluid">
     <!-- and profile.user == request.user -->
     {% block userauthenticated %}
       {% if user.is_authenticated %}
@@ -13,43 +11,22 @@
         {% else %}
           {{ user.username }}
         {% endif %}
-
-        <!--<br>id is
-        {{user.id}}-->
         <br>
-        <a class="nav-link active" aria-current="page" href="{% url 'account:profile' %}">پروفایل</a>
+        <a href="{% url 'account:profile' %}">پروفایل</a>
       {% else %}
-        <a class="nav-link active" aria-current="page" href="{% url 'login' %}"> <p>ورود</p> </a>
+        <a href="{% url 'login' %}"> <p>ورود</p> </a>
         <p> / </p>
         <br>
-        <a class="nav-link active" aria-current="page" href="{% url 'account:signup' %}"> <p>ثبت نام</p> </a>
+        <a href="{% url 'account:signup' %}"> <p>ثبت نام</p> </a>
       {% endif %}
     {% endblock %}
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+        <li >
+          <a href="{% url 'product:category_list' %}">محصولات</a>
         </li>
-
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'product:category_list' %}">محصولات</a>
-        </li>
-
-      </ul>
-
-    </div>
-  </div>
-</nav>
-
 {% if user.is_authenticated %}
   {% if user.username == 'admin' %}
     <p><a href='admin/'>ادمین</a></p>
     <p><a href="{% url 'account:all_accounts' %}">کاربران</a></p>
   {% endif %}
 {% endif %}
-
-
 {% endblock %}
