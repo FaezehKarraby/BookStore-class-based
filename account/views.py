@@ -1,71 +1,85 @@
-from django.views.generic import CreateView, UpdateView, FormView, DeleteView
-from account.forms import SignUpForm, ProfileForm
-from django.urls import reverse_lazy, reverse
-from django.shortcuts import render, get_object_or_404
-from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+from account.forms import SignUpForm, ProfileForm, LoginForm, EditProfileForm, UpdateProfileForm
 from account.models import Profile
-from django.contrib.auth import get_user_model
-from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth import logout
+from django.contrib.auth import authenticate, login
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, redirect
+from django.urls import reverse
 
 
-
-class SignUpView(CreateView):
-    model = Profile
-    form_class = SignUpForm
-    #fields = ['user', 'mobile', 'gender', 'birth_date', 'profile_image', 'balance']
-    success_url = reverse_lazy('login')
-    template_name = 'registration/signup.html'
-
-
-class ProfileView(CreateView):
-    form_class = ProfileForm
-    model = Profile
-    template_name = 'registration/profile.html'
-
-    def form_valid(self, form):
-        form.save(self.request.user)
-        return super(ProfileView, self).form_valid(form)
-
-    def get_success_url(self, *args, **kwargs):
-        return reverse('login')
+def SignupView(request):
+    if not request.user.is_authenticated:
+        if request.method == 'POST':
+            form = SignUpForm(request.POST)
+            if form.is_valid():
+                form.save()
+                username = form.cleaned_data.get('username')
+                password = form.cleaned_data.get('password1')
+                user = authenticate(username=username, password=password)
+                login(request, user)
+                return render(request, 'home.html')
+        else:
+            form = SignUpForm()
+        return render(request, 'account/signup.html', {'form': form})
+    else:
+        return HttpResponseRedirect(reverse('home:home'))
 
 
-class ProfileEdit(UpdateView):
-    model = Profile
-    form_class = ProfileForm
-    template_name = 'registration/profile_edit.html'
+def LoginView(request):
+    if not request.user.is_authenticated:
+        if request.method == 'POST':
+            form = LoginForm(request.POST)
+            if form.is_valid():
+                user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password'])
+                if user:
+                    context = {
+                        'form': form,
+                        'user': user,
+                    }
+                    login(request, user=user)
+                    if request.GET.get('next'):
+                        return HttpResponseRedirect(request.GET['next'])
+                    return render(request, 'home.html', context)
+                else:
+                    context = {
+                        'form': form,
+                        'error': 'username or password is wrong...!',
+                    }
+            else:
+                context = {
+                    'form': form,
+                }
+        else:
+            form = LoginForm()
+            context = {
+                'form': form,
+            }
+        return render(request, 'account/login.html', context)
+    else:
+        return HttpResponseRedirect(reverse('home:home'))
 
-    def get_object(self, *args, **kwargs):
-        user = get_object_or_404(User, pk=self.kwargs['pk'])
+
+def LogoutView(request):
+    if request.user.is_authenticated:
+        logout(request)
+        return HttpResponseRedirect(reverse('account:login'))
+    return HttpResponseRedirect('home:home')
 
 
-    def get_success_url(self, *args, **kwargs):
-        return reverse('profile')
-
-
-class ProfileDeleteView(DeleteView):
-    model = User
-    success_url = reverse_lazy('account:all_accounts')
-    template_name = 'account/user_confirm_delete.html'
-
-
-def get_all_users(request):
-    users = User.objects.all()
-    context = {
-    'users': users[1:],
-    }
-    return render(request, 'account/all_accounts.html', context)
-
-
-def get_detail_view(request, pk):
-    user = User.objects.get(id=pk)
-    context = {
-    'user': user,
-    }
-    return render(request, 'account/account_detail.html', context)
-
-
-def exit(request):
-    context = {
-    }
-    return render(request, 'account/exit.html', context)
+@login_required
+def ProfileView(request):
+    profile = Profile.objects.get(user=request.user)
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            form.save()
+            context = {
+                'boldmessage': 'I am bold font from the context',
+            }
+            return render(request, 'home:home.html', context)
+        else:
+            print(form.errors)
+    else:
+        form = ProfileForm()
+    return render(request, 'account/profile.html', {'form': form})

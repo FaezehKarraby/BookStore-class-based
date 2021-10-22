@@ -1,32 +1,20 @@
 {% extends 'base.html' %}
-{% block title %} صفحه اصلی {% endblock %}
+{% block title %} Home {% endblock %}
 {% block home %}{% endblock %}
 
 {% block content %}
-    <!-- and profile.user == request.user -->
-    {% block userauthenticated %}
-      {% if user.is_authenticated %}
-        {% if user.first_name %}
-          {{ user.get_full_name }}
-        {% else %}
-          {{ user.username }}
-        {% endif %}
+    </form>
+    {% if user.is_authenticated %}
+        Hello {{ user.username }}
         <br>
-        <a href="{% url 'account:profile' %}">پروفایل</a>
-      {% else %}
-        <a href="{% url 'login' %}"> <p>ورود</p> </a>
+        <a href="{% url 'account:profile' %}">Profile</a>
+        <br>
+        <a href="{% url 'account:logout' %}">Logout</a>
+        <br>
+    {% else %}
+        <a href="{% url 'account:login' %}"><p>Login</p></a>
         <p> / </p>
         <br>
-        <a href="{% url 'account:signup' %}"> <p>ثبت نام</p> </a>
-      {% endif %}
-    {% endblock %}
-        <li >
-          <a href="{% url 'product:category_list' %}">محصولات</a>
-        </li>
-{% if user.is_authenticated %}
-  {% if user.username == 'admin' %}
-    <p><a href='admin/'>ادمین</a></p>
-    <p><a href="{% url 'account:all_accounts' %}">کاربران</a></p>
-  {% endif %}
-{% endif %}
+        <a href="{% url 'account:signup' %}"><p>Sign up</p></a>
+    {% endif %}
 {% endblock %}

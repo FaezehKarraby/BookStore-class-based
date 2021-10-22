@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" type='text/css' href="/static/login.css">
+</head>
+<body>
+<div class="container">
+    <div class="blueBg">
+    </div>
+    <div class="formBx">
+        <div class="form signinForm">
+            <form method="post">
+                {% csrf_token %}
+                <h2>Login</h2>
+                Username:
+                <input type="text" name='username' maxlength="150" autofocus autocapitalize='none'
+                       autocomplete="username" required id='id_username'>
+                Password:
+                <input type="password" name="password" required id='id_password'>
+
+                <input type="submit" value="Login">
+                <button type="submit"><a href="{% url 'account:signup' %}" class="signup"
+                                         style="text-decoration: none;">Sign up</a></button>
+                <button type="submit"><a href="{% url 'home:home' %}" class="home"
+                                         style="text-decoration: none;">Home</a></button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

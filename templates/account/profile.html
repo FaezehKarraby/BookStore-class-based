@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}{{ user.username }}{% endblock %}
+{% block content %}
+    <h3>Hello {{ user.username }}, welcome to your profile page... </h3>
+    <form method="post">
+        {% csrf_token %}
+        Username:
+        <button type="button"> {{ user.username }}</button>
+        {{ form.as_p }}
+    </form>
+{% endblock %}

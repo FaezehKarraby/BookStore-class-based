@@ -1,47 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" dir="rtl">
-    <head>
-        <meta charset="utf-8">
-        <title>{% block title %}book_store{% endblock %}</title>
-    </head>
-    <body>
-        <a c href="{% url 'home:home' %}">
-          <img src="/static/logo3.png" alt="LOGO" width="50" height="40" class="d-inline-block align-middle">
-                فروشگاه آنلاین کتاب
-        </a>
-        <form action="{% url 'home:search' %}" method="get">
-          <input type="search" name="q" placeholder="جستجو..." aria-label="Search">
-          <button type="submit">جستجو</button>
-        </form>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}book_store{% endblock %}</title>
+</head>
+<body>
+<a href="{% url 'home:home' %}">
+    <img src="/static/logo3.png" alt="LOGO" width="50" height="40" class="d-inline-block align-middle">
+    Bookstore
+</a>
+<br>
+{% block content %}{% endblock %}
 
-        <form action="{% url 'home:search_advanced' %}" method="get">
-          <input type="search" name="q" placeholder="جستجو..." aria-label="Search">
-          <button type="submit">جستجو پیشرفته</button>
-        </form>
 
-      {% block home %}
-        <button type="button" name="button"><a href="{% url 'home:home' %}">صفحه اصلی</a></button>
-        <button type="button" name="button"><a href="{{ request.META.HTTP_REFERER }}">برگشت</a></button>
-      {% endblock %}
-
-  {% block content %}
-    {% block userauthenticated %}
-      {% if user.is_authenticated %}
-        {{ user.get_full_name }}
-      {% else %}
-        <p>not login</p>
-        <a href="{% url 'login' %}">ورود</a>
-      {% endif %}
-    {% endblock %}
-  {% endblock %}
-
-  {% block exit %}
-    {% if user.is_authenticated %}
-      <button type="submit" name="button"><a href="{% url 'account:exit' %}">خروج</a></button>
-    {% endif %}
-  {% endblock %}
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-  <script src="/static/scripts.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+<script src="/static/scripts.js"></script>
 </body>
 </html>

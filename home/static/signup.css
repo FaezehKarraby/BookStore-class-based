@@ -12,7 +12,7 @@ body
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #e458;
+  background: #ffffff;
   transition: 0.5s;
 }
 .container
@@ -105,7 +105,7 @@ body
 .formBx .form form h3
 {
   font-size: 2em;
-  color: #333;
+  color: #000000;
   margin-bottom: 20px;
   font-weight: 500;
   justify-content: center;
@@ -119,24 +119,35 @@ body
   outline: none;
   font-size: 16px;
   border: 1px solid #333;
-  border-radius: 10px;
+  border-radius: 8px;
   box-shadow: 0 1px 10px rgba(0,0,0,0.25);
 }
 .formBx .form form input[type="submit"]
 {
-  background: #e458;
+  background: #ffffff;
   border: none;
-  color: #fff;
+  color: #000000;
   max-width: 1000px;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 8px;
+  box-shadow: 0 1px 10px rgba(0,0,0,0.25);
+}
+.formBx .form form button
+{
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 5px;
+  outline: none;
+  font-size: 16px;
+  border: 1px solid #333;
+  border-radius: 8px;
   box-shadow: 0 1px 10px rgba(0,0,0,0.25);
 }
 .formBx .form form button[type="submit"]
 {
-  background: #e458;
+  background: #ffffff;
   border: none;
-  color: #333;
+  color: #000000;
   max-width: 1000px;
   cursor: pointer;
   border-radius: 8px;
@@ -146,9 +157,9 @@ body
 }
 .formBx .form form .home
 {
-  color: #fff;
+  color: #000000;
 }
 .formBx .form form .login
 {
-  color: #fff;
+  color: #000000;
 }

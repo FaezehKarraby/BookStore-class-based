@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-size: 15px;
+            font-family: monospace;
+            background: #333333;
+            background-size: cover;
+            height: 250vh;
+            color: white;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .blog-entry .entry-hover .hover-cover,
+        .blog-entry:hover .entry-hover .hover-cover,
+        .blog-entry .hover-info,
+        i, input, textarea, body, button, a {
+            transition: ease-in-out 0.5s;
+        }
+
+        .blog {
+            padding: 80px 0 20px;
+            overflow: hidden;
+        }
+
+        h2, h3 {
+            font-family: monospace;
+        }
+
+        .blog-entry {
+            margin-bottom: 200px;
+            position: relative;
+        }
+
+        .blog-entry .entry-hover {
+            position: absolute;
+            margin: 20px;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+
+        .blog-entry .entry-hover .hover-cover {
+            position: absolute;
+            bottom: 50%;
+            left: 100px;
+            right: 0;
+            margin: 0 auto -75px;
+            z-index: 2;
+            border-redius: 300px;
+            filter: alpha(opacity=80);
+        }
+
+        .blog-entry:hover .entry-hover .hover-cover {
+            height: 395px;
+            width: 250px;
+            border-radius: 10px;
+            top: -30px;
+            bottom: -240px;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+
+        .blog-entry .hover-info {
+            position: absolute;
+            top: 100%;
+            margin-top: -25px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            z-index: 4;
+        }
+
+        .blog-entry:hover .hover-info {
+            top: 0;
+            margin-top: 25px;
+        }
+
+        .blog-entry .hover-info img {
+            border-radius: 20px;
+            width: 100px;
+            height: 100px;
+            margin: -30px;
+        }
+
+        .blog-entry:hover .hover-info img {
+            border: 0px solid white !important;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .blog-entry:hover .hover-info:hover img {
+            transform: scale(0.7) rotate(360deg);
+        }
+
+        .blog-entry .hover-info p {
+            font-size: 13px;
+        }
+
+        .blog-entry .hover-info h2 a {
+            color: white;
+            text-decoration: none;
+            font-size: 23px;
+            line-height: 2.5;
+        }
+
+        .blog-entry .hover-info .hover-text,
+        .blog-entry .hover-info .hover-author {
+            display: none;
+            margin: 35px;
+        }
+
+        .blog-entry:hover .hover-info .hover-text,
+        .blog-entry:hover .hover-info .hover-author {
+            display: block;
+        }
+
+        .designation {
+            color: white;
+        }
+
+        .designation.active, .real {
+            background-color: #002111;
+        }
+
+
+    </style>
+</head>
+<body>
+
+
+<div class="blog">
+    <div class="container">
+        <div class="row">
+
+
+            <div class="col-md-4">
+                <div class="blog-entry">
+                    <div class="entry-cover">
+                        <a href="">
+                            <img src="/static/product/Young Adult4.jpeg" alt="">
+                        </a>
+                    </div>
+                    <div class="entry-hover">
+                        <div class="hover-cover real"></div>
+                        <div class="hover-info">
+                            <img src="/static/product/4.jpeg" alt="">
+                            <p class="hover-author"></p>
+                            <h2><a href="">Young Adult</a></h2>
+                            <p class="designation">Popular Fiction Book</p>
+                            <p class="hover-text">
+                                Young adult fiction is written for readers ages 12 to 18. They incorporate the typical
+                                reading level and worldview of tweens and teens in this age group. The Hunger Games
+                                series by Suzanne Collins is an example of popular young adult fiction.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="blog-entry">
+                    <div class="entry-cover">
+                        <a href="">
+                            <img src="/static/product/Children’s Books1.jpeg" alt="">
+                        </a>
+                    </div>
+                    <div class="entry-hover">
+                        <div class="hover-cover real"></div>
+                        <div class="hover-info">
+                            <img src="/static/product/4.jpeg" alt="">
+                            <p class="hover-author"></p>
+                            <h2><a href="">Children’s Books</a></h2>
+                            <p class="designation">Popular Fiction Book</p>
+                            <p class="hover-text">
+                                Books in this genre are written with readers under the age of 12 in mind. Types of
+                                children’s books include picture books and chapter books. Classic Dr. Seuss books like
+                                Green Eggs and Ham are examples of children’s fiction.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="blog-entry">
+                    <div class="entry-cover">
+                        <a href="">
+                            <img src="/static/product/Crime Thriller4.jpeg" alt="">
+                        </a>
+                    </div>
+                    <div class="entry-hover">
+                        <div class="hover-cover real"></div>
+                        <div class="hover-info">
+                            <img src="/static/product/4.jpeg" alt="">
+                            <p class="hover-author"></p>
+                            <h2><a href="">Crime Thriller</a></h2>
+                            <p class="designation">Popular Fiction Book</p>
+                            <p class="hover-text">
+                                Thrillers are suspenseful stories, which makes a crime thriller a book that has a crime
+                                as its main subject while keeping readers on edge. The main characters are often
+                                fighting for justice. John Grisham is a well-known crime thriller author.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="blog-entry">
+                    <div class="entry-cover">
+                        <a href="">
+                            <img src="/static/product/Literary Fiction3.jpeg" alt="">
+                        </a>
+                    </div>
+                    <div class="entry-hover">
+                        <div class="hover-cover real"></div>
+                        <div class="hover-info">
+                            <img src="/static/product/4.jpeg" alt="">
+                            <p class="hover-author"></p>
+                            <h2><a href="">Literary Fiction</a></h2>
+                            <p class="designation">Popular Fiction Book</p>
+                            <p class="hover-text">
+                                If a work of fiction doesn’t fit into any of the other available genres, it can be
+                                labeled as literary fiction. These books are usually character-driven and introspective.
+                                Like Stephen Crane’s The Open Boat.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="blog-entry">
+                    <div class="entry-cover">
+                        <a href="">
+                            <img src="/static/product/Science Fiction2.jpeg" alt="">
+                        </a>
+                    </div>
+                    <div class="entry-hover">
+                        <div class="hover-cover real"></div>
+                        <div class="hover-info">
+                            <img src="/static/product/4.jpeg" alt="">
+                            <p class="hover-author"></p>
+                            <h2><a href="">Science Fiction</a></h2>
+                            <p class="designation">Popular Fiction Book</p>
+                            <p class="hover-text">
+                                AlAlso known as Sci-Fi, science fiction deals with the imagined future in terms of
+                                science or technology advances. This genre includes things like time travel, outer
+                                space, and intelligent life. Like The Time Machine by H.G. Wells.
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="blog-entry">
+                    <div class="entry-cover">
+                        <a href="">
+                            <img src="/static/product/Food1.jpeg" alt="">
+                        </a>
+                    </div>
+                    <div class="entry-hover">
+                        <div class="hover-cover real"></div>
+                        <div class="hover-info">
+                            <img src="/static/product/4.jpeg" alt="">
+                            <p class="hover-author"></p>
+                            <h2><a href="">Food</a></h2>
+                            <p class="designation">Popular Nonfiction Book</p>
+                            <p class="hover-text">
+                                You’ll find classic cookbooks with recipes and books that are part memoir/autobiography
+                                and part cookbook. Mastering the Art of French Cooking by Julia Child is an example of a
+                                popular food book.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="blog-entry">
+                    <div class="entry-cover">
+                        <a href="">
+                            <img src="/static/product/7.jpeg" alt="">
+                        </a>
+                    </div>
+                    <div class="entry-hover">
+                        <div class="hover-cover real"></div>
+                        <div class="hover-info">
+                            <img src="/static/product/4.jpeg" alt="">
+                            <p class="hover-author"></p>
+                            <h2><a href="">History</a></h2>
+                            <p class="designation">Popular Nonfiction Book</p>
+                            <p class="hover-text">
+                                Nonfiction history books include any books that lay out the known facts about a
+                                particular, time, culture, or event in history. Killing England by Bill O’Reilly and
+                                Martin Dugard is an example of a popular history book.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="blog-entry">
+                    <div class="entry-cover">
+                        <a href="">
+                            <img src="/static/product/Memoir1.jpeg" alt="">
+                        </a>
+                    </div>
+                    <div class="entry-hover">
+                        <div class="hover-cover real"></div>
+                        <div class="hover-info">
+                            <img src="/static/product/4.jpeg" alt="">
+                            <p class="hover-author"></p>
+                            <h2><a href="">Memoir</a></h2>
+                            <p class="designation">Popular Nonfiction Book</p>
+                            <p class="hover-text">
+                                Memoirs are one type of autobiography. In this type of book, the author puts emphasis on
+                                specific moments or events that brought about specific life lessons. A popular example
+                                of a memoir is Becoming by Michelle Obama.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="blog-entry">
+                    <div class="entry-cover">
+                        <a href="">
+                            <img src="/static/product/Politics2.jpeg" alt="">
+                        </a>
+                    </div>
+                    <div class="entry-hover">
+                        <div class="hover-cover real"></div>
+                        <div class="hover-info">
+                            <img src="/static/product/4.jpeg" alt="">
+                            <p class="hover-author"></p>
+                            <h2><a href="">Politics</a></h2>
+                            <p class="designation">Popular Nonfiction Book</p>
+                            <p class="hover-text">
+                                Political nonfiction books can include books written by career politicians, books that
+                                explore political systems, or books that discuss the politics of a certain period. A
+                                Promised Land by Barack Obama is an example of political nonfiction.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
